@@ -65,7 +65,7 @@ languageRouter
   });
 
 languageRouter
-  .post('/guess', async (req, res, next) => {
+  .post('/guess', jsonParser, async (req, res, next) => {
     try {
       const { guess } = req.body;
       if (!guess) {
