@@ -1,4 +1,19 @@
-# Spaced repetition API!
+# THE GERMAN WORD LEARNER
+
+## Description
+
+An automatic way to learn the basic words of German. A user can sign up for free, login, and keep track of their progress.
+
+## Github repos
+
+- [Client](https://github.com/Russjames92/spaced-repetition)
+- [Server](https://github.com/Russjames92/spaced-repetition-api)
+
+## API Endpoints
+
+- /api/user - user registration endpoint
+- /api/auth - user authentication endpoint
+- /api/language - serving and handling words endpoint
 
 ## Local dev setup
 
@@ -27,7 +42,7 @@ For tests involving time to run properly, configure your Postgres database to ru
 1. Locate the `postgresql.conf` file for your Postgres installation.
    1. E.g. for an OS X, Homebrew install: `/usr/local/var/postgres/postgresql.conf`
    2. E.g. on Windows, _maybe_: `C:\Program Files\PostgreSQL\11.2\data\postgresql.conf`
-   3. E.g  on Ubuntu 18.04 probably: '/etc/postgresql/10/main/postgresql.conf'
+   3. E.g on Ubuntu 18.04 probably: '/etc/postgresql/10/main/postgresql.conf'
 2. Find the `timezone` line and set it to `UTC`:
 
 ```conf
