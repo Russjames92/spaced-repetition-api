@@ -77,7 +77,6 @@ languageRouter
           req.app.get('db'),
           req.language.id
         );
-
         const wordList = await LanguageService.createWordList(
           words,
           req.language
@@ -88,7 +87,7 @@ languageRouter
         let translation = current.value.translation;
         let totalScore = req.language.total_score;
 
-        if (quess === translation) {
+        if (guess === translation) {
           isCorrect = true;
           current.value.correct_count++;
           current.value.memory_value *= 2;
