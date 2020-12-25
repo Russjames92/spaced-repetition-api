@@ -55,7 +55,7 @@ describe('User Endpoints', function () {
       return supertest(app)
         .post('/api/user')
         .send(userShortPassword)
-        .expect(400, { error: `Password be longer than 8 characters` })
+        .expect(400, { error: `Password Must Be Longer Than 8 Characters` })
     })
 
     it(`responds 400 'Password be less than 72 characters' when long password`, () => {
@@ -67,7 +67,7 @@ describe('User Endpoints', function () {
       return supertest(app)
         .post('/api/user')
         .send(userLongPassword)
-        .expect(400, { error: `Password be less than 72 characters` })
+        .expect(400, { error: `Password Must Be Less Than 72 Characters` })
     })
 
     it(`responds 400 error when password starts with spaces`, () => {
@@ -79,7 +79,7 @@ describe('User Endpoints', function () {
       return supertest(app)
         .post('/api/user')
         .send(userPasswordStartsSpaces)
-        .expect(400, { error: `Password must not start or end with empty spaces` })
+        .expect(400, { error: `Password Must Not Start Or End With Empty Spaces` })
     })
 
     it(`responds 400 error when password ends with spaces`, () => {
@@ -91,7 +91,7 @@ describe('User Endpoints', function () {
       return supertest(app)
         .post('/api/user')
         .send(userPasswordEndsSpaces)
-        .expect(400, { error: `Password must not start or end with empty spaces` })
+        .expect(400, { error: `Password Must Not Start Or End With Empty Spaces` })
     })
 
     it(`responds 400 error when password isn't complex enough`, () => {
@@ -103,7 +103,7 @@ describe('User Endpoints', function () {
       return supertest(app)
         .post('/api/user')
         .send(userPasswordNotComplex)
-        .expect(400, { error: `Password must contain one upper case, lower case, number and special character` })
+        .expect(400, { error: `Password Must Contain One Upper Case, Lower case, Number and Special Character` })
     })
 
     it(`responds 400 'User name already taken' when username isn't unique`, () => {
@@ -204,9 +204,9 @@ describe('User Endpoints', function () {
                 ) AS words`
               ),
             )
-            .leftJoin('word', 'word.language_id', 'language.id')
-            .groupBy('language.id')
-            .where({ user_id: res.body.id })
+              .leftJoin('word', 'word.language_id', 'language.id')
+              .groupBy('language.id')
+              .where({ user_id: res.body.id })
           )
           .then(dbLists => {
             expect(dbLists).to.have.length(1)

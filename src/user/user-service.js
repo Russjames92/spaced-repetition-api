@@ -18,16 +18,16 @@ const UserService = {
   },
   validatePassword(password) {
     if (password.length < 8) {
-      return 'Password be longer than 8 characters'
+      return 'Password Must Be Longer Than 8 Characters'
     }
     if (password.length > 72) {
-      return 'Password be less than 72 characters'
+      return 'Password Must Be Less Than 72 Characters'
     }
     if (password.startsWith(' ') || password.endsWith(' ')) {
-      return 'Password must not start or end with empty spaces'
+      return 'Password Must Not Start Or End With Empty Spaces'
     }
     if (!REGEX_UPPER_LOWER_NUMBER_SPECIAL.test(password)) {
-      return 'Password must contain one upper case, lower case, number and special character'
+      return 'Password Must Contain One Upper Case, Lower case, Number and Special Character'
     }
     return null
   },
